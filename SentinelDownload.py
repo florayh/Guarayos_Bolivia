@@ -6,8 +6,8 @@ import sentinel_api_noPB as api
 
 
 # use username and password for ESA DATA Hub authentication
-username = 'heyifan0126'
-password = 'HYFhyfh1f'
+username = ''
+password = ''
 
 # please also specify the Hub URL:
 # All Sentinel-1 and -2 scenes beginning from 15th Nov. 2015: https://scihub.copernicus.eu/apihub/
