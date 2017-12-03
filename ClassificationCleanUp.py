@@ -9,5 +9,5 @@ Majfilt17 = MajorityFilter("Guarayos2017Classified","EIGHT","HALF")
 
 # Step 2. Boundary Clean
 
-BndCln07 = BoundaryClean("Guarayos2007Classified","DESCEND","TWO-WAY")
-BndCln17 = BoundaryClean("Guarayos2017Classified","DESCEND","TWO-WAY")
+BndCln07 = BoundaryClean("Majfilt07","DESCEND","TWO_WAY")
+BndCln17 = BoundaryClean("Majfilt17","DESCEND","TWO_WAY")
