@@ -24,9 +24,9 @@ import arcpy
 from arcpy import env
 from arcpy.sa import *
 env.workspace = "M:/Private/Guarayos"
-Reclass07 = Reclassify("Guarayos2007Classified", "Value",
+Reclass07 = Reclassify("Boundar_Majo1", "Value",
                         RemapRange([[1,10],[2,100],[3,0],[4,0],[5,0],[0,0]]))
-Reclass17 = Reclassify("Guarayos2017Classified", "Value",
+Reclass17 = Reclassify("Boundar_Majo2", "Value",
                         RemapRange([[1,10],[2,1000],[3,1],[4,1],[5,1],[0,1]]))
 
 # Step 2. subtraction; Reclassify the change map to reflect changes
@@ -38,3 +38,11 @@ reclassField = "Value"
 remap = RemapRange([[0,1],[990,2],[-9,0],[900,0],[-99,0],[-10,0],[1000,0],[1,0]])
 ChangeMap = Reclassify(inRaster, reclassField, remap, "NODATA")
 ChangeMap.save("M:/Private/Guarayos/GuarayosLandcover.gdb/ChangeMap")
+
+# Step 3. Clean the change map
+ChangeMapCleaned = BoundaryClean("ChangeMap","DESCEND","TWO_WAY")
+
+# Step 4. Assin 0 to NODATA
+F2AChange = SetNull("ChangeMapCleaned", "ChangeMapCleaned", "Value = 0")
+
+
